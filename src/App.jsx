@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
 import EmployeDash from './components/Dashboard/EmployeDash'
 import AdminDash from './components/Dashboard/AdminDash'
 import { getLocalStorage, setLocalStorage } from './Utils/LocalStorage'
+import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
 
@@ -19,6 +20,9 @@ const App = () => {
       alert("Invalid Credentials")
 
   }
+
+  const data = useContext(AuthContext)
+  console.log(data)
 
   const handleLogout = ()=>{
     setUser(null);
